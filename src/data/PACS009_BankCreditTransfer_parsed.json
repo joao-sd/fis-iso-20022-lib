@@ -1,0 +1,129 @@
+{
+  "urn:FedwireFundsIncoming": {
+    "urn:FedwireFundsIncomingMessage": {
+      "urn:FedwireFundsFinancialInstitutionCreditTransfer": {
+        "urn1:AppHdr": {
+          "urn1:Fr": {
+            "urn1:FIId": {
+              "urn1:FinInstnId": {
+                "urn1:ClrSysMmbId": {
+                  "urn1:MmbId": 123456789
+                }
+              }
+            }
+          },
+          "urn1:To": {
+            "urn1:FIId": {
+              "urn1:FinInstnId": {
+                "urn1:ClrSysMmbId": {
+                  "urn1:MmbId": 21151080
+                }
+              }
+            }
+          },
+          "urn1:BizMsgIdr": "Bank Credit Transfer Sample",
+          "urn1:MsgDefIdr": "pacs.009.001.08",
+          "urn1:BizSvc": "TEST",
+          "urn1:MktPrctc": {
+            "urn1:Regy": "www2.swift.com/mystandards/#/group/Federal_Reserve_Financial_Services/Fedwire_Funds_Service",
+            "urn1:Id": "frb.fedwire.01"
+          },
+          "urn1:CreDt": "2024-02-28T10:00:00.123-04:00",
+          "xmlns:urn1": "urn:iso:std:iso:20022:tech:xsd:head.001.001.03"
+        },
+        "urn2:Document": {
+          "urn2:FICdtTrf": {
+            "urn2:GrpHdr": {
+              "urn2:MsgId": "20240228B1QDRCQR000501",
+              "urn2:CreDtTm": "2024-02-28T10:00:00.123-04:00",
+              "urn2:NbOfTxs": 1,
+              "urn2:SttlmInf": {
+                "urn2:SttlmMtd": "CLRG",
+                "urn2:ClrSys": {
+                  "urn2:Cd": "FDW"
+                }
+              }
+            },
+            "urn2:CdtTrfTxInf": {
+              "urn2:PmtId": {
+                "urn2:InstrId": "Scenario01FIInstrId001",
+                "urn2:EndToEndId": "BANC338754BAND33",
+                "urn2:UETR": "8a562c67-ca16-48ba-b074-65581be6f055"
+              },
+              "urn2:PmtTpInf": {
+                "urn2:LclInstrm": {
+                  "urn2:Prtry": "BTRC"
+                }
+              },
+              "urn2:IntrBkSttlmAmt": {
+                "#text": 500000000,
+                "Ccy": "USD"
+              },
+              "urn2:IntrBkSttlmDt": "2024-02-28",
+              "urn2:InstgAgt": {
+                "urn2:FinInstnId": {
+                  "urn2:ClrSysMmbId": {
+                    "urn2:ClrSysId": {
+                      "urn2:Cd": "USABA"
+                    },
+                    "urn2:MmbId": 123456789
+                  }
+                }
+              },
+              "urn2:InstdAgt": {
+                "urn2:FinInstnId": {
+                  "urn2:ClrSysMmbId": {
+                    "urn2:ClrSysId": {
+                      "urn2:Cd": "USABA"
+                    },
+                    "urn2:MmbId": 123456789
+                  }
+                }
+              },
+              "urn2:Dbtr": {
+                "urn2:FinInstnId": {
+                  "urn2:ClrSysMmbId": {
+                    "urn2:ClrSysId": {
+                      "urn2:Cd": "USABA"
+                    },
+                    "urn2:MmbId": 21307481
+                  },
+                  "urn2:Nm": "Bank C",
+                  "urn2:PstlAdr": {
+                    "urn2:StrtNm": "Avenue C",
+                    "urn2:BldgNb": 1099,
+                    "urn2:PstCd": 92262,
+                    "urn2:TwnNm": "Palm Springs",
+                    "urn2:CtrySubDvsn": "CA",
+                    "urn2:Ctry": "US"
+                  }
+                }
+              },
+              "urn2:Cdtr": {
+                "urn2:FinInstnId": {
+                  "urn2:ClrSysMmbId": {
+                    "urn2:ClrSysId": {
+                      "urn2:Cd": "USABA"
+                    },
+                    "urn2:MmbId": 231981435
+                  },
+                  "urn2:Nm": "BANK D",
+                  "urn2:PstlAdr": {
+                    "urn2:StrtNm": "Avenue D",
+                    "urn2:BldgNb": 35,
+                    "urn2:PstCd": 60197,
+                    "urn2:TwnNm": "Carol Stream",
+                    "urn2:CtrySubDvsn": "IL",
+                    "urn2:Ctry": "US"
+                  }
+                }
+              }
+            }
+          },
+          "xmlns:urn2": "urn:iso:std:iso:20022:tech:xsd:pacs.009.001.08"
+        }
+      }
+    },
+    "xmlns:urn": "urn:fedwirefunds:incoming:v001"
+  }
+}
