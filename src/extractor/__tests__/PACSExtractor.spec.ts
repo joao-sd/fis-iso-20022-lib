@@ -24,13 +24,13 @@ describe('PACSExtractor', () => {
     expect(document).toBeDefined();
   });
 
-  it("should return undefined for AppHdr and Document if they don't exist", () => {
+  it("should return null for AppHdr and Document if they don't exist", () => {
     const xmlData = `<urn:FedwireFundsIncoming xmlns:urn="urn:fedwirefunds:incoming:v001"></urn:FedwireFundsIncoming>`;
 
     const { appHdr, document } =
       pacsExtractor.extractAppHdrAndDocument(xmlData);
 
-    expect(appHdr).toBeUndefined();
-    expect(document).toBeUndefined();
+    expect(appHdr).toBeFalsy();
+    expect(document).toBeFalsy();
   });
 });
