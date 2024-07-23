@@ -1,7 +1,7 @@
-import { XMLParser } from "fast-xml-parser";
-import fs from "fs";
-import path from "path";
-import { DATA_PATH } from "./parseFedwire";
+import { XMLParser } from 'fast-xml-parser';
+import fs from 'fs';
+import path from 'path';
+import { DATA_PATH } from '../constants/pathConstants';
 
 export interface IFedwireParseInfo {
   MsgId: string; // 1100 Message Disposition
@@ -31,7 +31,7 @@ export abstract class BasePacsFileParser {
   constructor() {
     this.parser = new XMLParser({
       ignoreAttributes: false,
-      attributeNamePrefix: "",
+      attributeNamePrefix: '',
       allowBooleanAttributes: true,
       parseTagValue: true,
       trimValues: true,
@@ -41,18 +41,21 @@ export abstract class BasePacsFileParser {
   protected abstract parseDocument(document: any): IFedwireParseInfo;
 
   public parseFile(filePath: string): IFedwireParseInfo | undefined {
-    const xmlData = fs.readFileSync(filePath, "utf-8");
+    const xmlData = fs.readFileSync(filePath, 'utf-8');
     const result = this.parser.parse(xmlData);
 
     // Save result locally for debugging
 
     const fileName = path.basename(filePath, path.extname(filePath));
 
-    fs.writeFileSync(path.join(DATA_PATH, `${fileName}_parsed.json`), JSON.stringify(result, null, 2));
+    fs.writeFileSync(
+      path.join(DATA_PATH, `${fileName}_parsed.json`),
+      JSON.stringify(result, null, 2),
+    );
 
     const document = this.extractDocument(result);
     if (!document) {
-      console.error("Invalid PACS file structure: Missing Document.");
+      console.error('Invalid PACS file structure: Missing Document.');
       return;
     }
 

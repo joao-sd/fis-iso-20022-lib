@@ -1,9 +1,10 @@
 {
   "name": "fedwire-iso-20022",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
+    "prepublishOnly": "yarn build",
     "test": "jest",
     "parse": "yarn ts-node ./src/parser/parseFedwire.ts"
   },
@@ -22,5 +23,9 @@
     "reflect-metadata": "^0.2.2",
     "tsyringe": "^4.8.0",
     "xsd-validator": "^1.1.1"
-  }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ]
 }
