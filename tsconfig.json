@@ -7,7 +7,8 @@
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "types": ["jest", "node"]
+    "types": ["jest", "node"],
+    "useUnknownInCatchVariables": false
   },
   "include": ["src"],
   "exclude": ["node_modules", "**/__tests__/*"]

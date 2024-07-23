@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urn:Document xmlns:urn="urn:iso:std:iso:20022:tech:xsd:pacs.009.001.08">
+	<urn:FICdtTrf>
+		<urn:GrpHdr>
+			<urn:MsgId>20240228B1QDRCQR000506</urn:MsgId>
+			<urn:CreDtTm>2024-02-28T10:00:00-04:00</urn:CreDtTm>
+			<urn:NbOfTxs>1</urn:NbOfTxs>
+			<urn:SttlmInf>
+				<urn:SttlmMtd>CLRG</urn:SttlmMtd>
+				<urn:ClrSys>
+					<urn:Cd>FDW</urn:Cd>
+				</urn:ClrSys>
+			</urn:SttlmInf>
+		</urn:GrpHdr>
+		<urn:CdtTrfTxInf>
+			<urn:PmtId>
+				<urn:InstrId>Scenario06FIInstrId001</urn:InstrId>
+				<urn:EndToEndId>Scenario06FIEtoEId001</urn:EndToEndId>
+				<urn:UETR>8a562c67-ca16-48ba-b074-65581be6f055</urn:UETR>
+			</urn:PmtId>
+			<urn:PmtTpInf>
+				<urn:LclInstrm>
+					<urn:Prtry>COVC</urn:Prtry>
+				</urn:LclInstrm>
+			</urn:PmtTpInf>
+			<urn:IntrBkSttlmAmt Ccy="USD">17985234.25</urn:IntrBkSttlmAmt>
+			<urn:IntrBkSttlmDt>2024-02-28</urn:IntrBkSttlmDt>
+			<urn:InstgAgt>
+				<urn:FinInstnId>
+					<urn:ClrSysMmbId>
+						<urn:ClrSysId>
+							<urn:Cd>USABA</urn:Cd>
+						</urn:ClrSysId>
+						<urn:MmbId>123456789</urn:MmbId>
+					</urn:ClrSysMmbId>
+				</urn:FinInstnId>
+			</urn:InstgAgt>
+			<urn:InstdAgt>
+				<urn:FinInstnId>
+					<urn:ClrSysMmbId>
+						<urn:ClrSysId>
+							<urn:Cd>USABA</urn:Cd>
+						</urn:ClrSysId>
+						<urn:MmbId>123456789</urn:MmbId>
+					</urn:ClrSysMmbId>
+				</urn:FinInstnId>
+			</urn:InstdAgt>
+			<urn:Dbtr>
+				<urn:FinInstnId>
+					<urn:BICFI>BANZBEBB</urn:BICFI>
+				</urn:FinInstnId>
+			</urn:Dbtr>
+			<urn:DbtrAgt>
+				<urn:FinInstnId>
+					<urn:BICFI>BANCUS33</urn:BICFI>
+				</urn:FinInstnId>
+			</urn:DbtrAgt>
+			<urn:CdtrAgt>
+				<urn:FinInstnId>
+					<urn:BICFI>BANDUS33</urn:BICFI>
+				</urn:FinInstnId>
+			</urn:CdtrAgt>
+			<urn:Cdtr>
+				<urn:FinInstnId>
+					<urn:BICFI>BANYBRRJ</urn:BICFI>
+				</urn:FinInstnId>
+			</urn:Cdtr>
+			<urn:UndrlygCstmrCdtTrf>
+				<urn:Dbtr>
+					<urn:Nm>Corporation Z</urn:Nm>
+					<urn:PstlAdr>
+						<urn:StrtNm>Avenue Moliere</urn:StrtNm>
+						<urn:BldgNb>70</urn:BldgNb>
+						<urn:PstCd>1180</urn:PstCd>
+						<urn:TwnNm>Brussels</urn:TwnNm>
+						<urn:Ctry>BE</urn:Ctry>
+					</urn:PstlAdr>
+				</urn:Dbtr>
+				<urn:DbtrAcct>
+					<urn:Id>
+						<urn:IBAN>BE34001216371411</urn:IBAN>
+					</urn:Id>
+				</urn:DbtrAcct>
+				<urn:DbtrAgt>
+					<urn:FinInstnId>
+						<urn:BICFI>BANZBEBB</urn:BICFI>
+					</urn:FinInstnId>
+				</urn:DbtrAgt>
+				<urn:CdtrAgt>
+					<urn:FinInstnId>
+						<urn:BICFI>BANYBRRJ</urn:BICFI>
+					</urn:FinInstnId>
+				</urn:CdtrAgt>
+				<urn:Cdtr>
+					<urn:Nm>Corporation Y</urn:Nm>
+					<urn:PstlAdr>
+						<urn:StrtNm>Av. Lucio Costa</urn:StrtNm>
+						<urn:BldgNb>5220</urn:BldgNb>
+						<urn:BldgNm>Barra da Tijuca</urn:BldgNm>
+						<urn:PstCd>22630-012</urn:PstCd>
+						<urn:TwnNm>Rio de Janeiro</urn:TwnNm>
+						<urn:CtrySubDvsn>RJ</urn:CtrySubDvsn>
+						<urn:Ctry>BR</urn:Ctry>
+					</urn:PstlAdr>
+				</urn:Cdtr>
+				<urn:CdtrAcct>
+					<urn:Id>
+						<urn:IBAN>BR9700360305000010009795493P1</urn:IBAN>
+					</urn:Id>
+				</urn:CdtrAcct>
+				<urn:RmtInf>
+					<urn:Ustrd>Payment invoice 444563 dated 1st March 2025</urn:Ustrd>
+				</urn:RmtInf>
+				<urn:InstdAmt Ccy="USD">17985234.25</urn:InstdAmt>
+			</urn:UndrlygCstmrCdtTrf>
+		</urn:CdtTrfTxInf>
+	</urn:FICdtTrf>
+</urn:Document>

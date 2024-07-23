@@ -18,6 +18,7 @@
     "typescript": "^5.5.4"
   },
   "dependencies": {
-    "fast-xml-parser": "^4.4.0"
+    "fast-xml-parser": "^4.4.0",
+    "xsd-validator": "^1.1.1"
   }
 }
