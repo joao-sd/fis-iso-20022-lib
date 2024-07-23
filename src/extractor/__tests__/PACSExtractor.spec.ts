@@ -1,14 +1,16 @@
 import fs from 'fs';
 import path from 'path';
+import 'reflect-metadata';
+import { container } from 'tsyringe';
 import { DATA_PATH } from '../../constants/pathConstants';
-import PACSExtractor from '../PACSExtractor';
+import { PACSExtractor } from '../PACSExtractor';
 
 describe('PACSExtractor', () => {
   let pacsExtractor: PACSExtractor;
   let xmlFilePath: string;
 
   beforeAll(() => {
-    pacsExtractor = new PACSExtractor();
+    pacsExtractor = container.resolve(PACSExtractor);
     xmlFilePath = path.join(DATA_PATH, 'PACS009_CoverPayment.xml');
   });
 

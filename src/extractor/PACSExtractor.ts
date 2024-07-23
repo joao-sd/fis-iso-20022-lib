@@ -1,6 +1,8 @@
 import { XMLParser } from 'fast-xml-parser';
+import { injectable } from 'tsyringe';
 
-class PACSExtractor {
+@injectable()
+export class PACSExtractor {
   private parser: XMLParser;
 
   constructor() {
@@ -23,5 +25,3 @@ class PACSExtractor {
     return { appHdr, document };
   }
 }
-
-export default PACSExtractor;

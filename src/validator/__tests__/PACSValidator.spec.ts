@@ -1,4 +1,6 @@
 import path from 'path';
+import 'reflect-metadata';
+import { container } from 'tsyringe';
 import { DATA_PATH } from '../../constants/pathConstants';
 import { PACSValidator } from '../PACSValidator';
 
@@ -6,7 +8,7 @@ describe('PACSValidator', () => {
   let pacsValidator: PACSValidator;
 
   beforeAll(() => {
-    pacsValidator = new PACSValidator();
+    pacsValidator = container.resolve(PACSValidator);
   });
 
   it('should validate the XML file against the XSD file', () => {

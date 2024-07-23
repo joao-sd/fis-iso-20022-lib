@@ -1,6 +1,8 @@
 import fs from 'fs';
+import { injectable } from 'tsyringe';
 import validateSchema from 'xsd-validator';
 
+@injectable()
 export class PACSValidator {
   public validateXml(xmlFilePath: string, xsdFilePath: string): boolean {
     try {
