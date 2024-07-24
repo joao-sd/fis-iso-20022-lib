@@ -1,0 +1,181 @@
+{
+  "urn:FedwireFundsIncoming": {
+    "urn:FedwireFundsIncomingMessage": {
+      "urn:FedwireFundsCustomerCreditTransfer": {
+        "urn1:AppHdr": {
+          "urn1:Fr": {
+            "urn1:FIId": {
+              "urn1:FinInstnId": {
+                "urn1:ClrSysMmbId": {
+                  "urn1:MmbId": 123456789
+                }
+              }
+            }
+          },
+          "urn1:To": {
+            "urn1:FIId": {
+              "urn1:FinInstnId": {
+                "urn1:ClrSysMmbId": {
+                  "urn1:MmbId": 21151080
+                }
+              }
+            }
+          },
+          "urn1:BizMsgIdr": "US Treasury Tax Payment Sample",
+          "urn1:MsgDefIdr": "pacs.008.001.08",
+          "urn1:BizSvc": "TEST",
+          "urn1:MktPrctc": {
+            "urn1:Regy": "www2.swift.com/mystandards/#/group/Federal_Reserve_Financial_Services/Fedwire_Funds_Service",
+            "urn1:Id": "frb.fedwire.01"
+          },
+          "urn1:CreDt": "2024-02-28T09:00:00.123-04:00",
+          "xmlns:urn1": "urn:iso:std:iso:20022:tech:xsd:head.001.001.03"
+        },
+        "urn2:Document": {
+          "urn2:FIToFICstmrCdtTrf": {
+            "urn2:GrpHdr": {
+              "urn2:MsgId": "20240228B1QDRCQR000001",
+              "urn2:CreDtTm": "2024-02-28T09:00:00.123-04:00",
+              "urn2:NbOfTxs": 1,
+              "urn2:SttlmInf": {
+                "urn2:SttlmMtd": "CLRG",
+                "urn2:ClrSys": {
+                  "urn2:Cd": "FDW"
+                }
+              }
+            },
+            "urn2:CdtTrfTxInf": {
+              "urn2:PmtId": {
+                "urn2:InstrId": "Scenario04InstrId001",
+                "urn2:EndToEndId": "Scenario04EtoEId001",
+                "urn2:UETR": "8a562c67-ca16-48ba-b074-65581be6f011"
+              },
+              "urn2:PmtTpInf": {
+                "urn2:LclInstrm": {
+                  "urn2:Prtry": "CTRC"
+                }
+              },
+              "urn2:IntrBkSttlmAmt": {
+                "#text": 999008.53,
+                "Ccy": "USD"
+              },
+              "urn2:IntrBkSttlmDt": "2024-02-28",
+              "urn2:InstdAmt": {
+                "#text": 999008.53,
+                "Ccy": "USD"
+              },
+              "urn2:ChrgBr": "DEBT",
+              "urn2:InstgAgt": {
+                "urn2:FinInstnId": {
+                  "urn2:ClrSysMmbId": {
+                    "urn2:ClrSysId": {
+                      "urn2:Cd": "USABA"
+                    },
+                    "urn2:MmbId": 123456789
+                  }
+                }
+              },
+              "urn2:InstdAgt": {
+                "urn2:FinInstnId": {
+                  "urn2:ClrSysMmbId": {
+                    "urn2:ClrSysId": {
+                      "urn2:Cd": "USABA"
+                    },
+                    "urn2:MmbId": 91036164
+                  }
+                }
+              },
+              "urn2:Dbtr": {
+                "urn2:Nm": "Corporation A",
+                "urn2:PstlAdr": {
+                  "urn2:StrtNm": "Avenue of the Fountains",
+                  "urn2:BldgNb": 167565,
+                  "urn2:Room": "Suite D110",
+                  "urn2:PstCd": 85268,
+                  "urn2:TwnNm": "Fountain Hills",
+                  "urn2:CtrySubDvsn": "AZ",
+                  "urn2:Ctry": "US"
+                }
+              },
+              "urn2:DbtrAcct": {
+                "urn2:Id": {
+                  "urn2:Othr": {
+                    "urn2:Id": 5647772655
+                  }
+                }
+              },
+              "urn2:DbtrAgt": {
+                "urn2:FinInstnId": {
+                  "urn2:ClrSysMmbId": {
+                    "urn2:ClrSysId": {
+                      "urn2:Cd": "USABA"
+                    },
+                    "urn2:MmbId": 11104238
+                  },
+                  "urn2:Nm": "Bank A",
+                  "urn2:PstlAdr": {
+                    "urn2:StrtNm": "Avenue A",
+                    "urn2:BldgNb": 66,
+                    "urn2:PstCd": 60532,
+                    "urn2:TwnNm": "Lisle",
+                    "urn2:CtrySubDvsn": "IL",
+                    "urn2:Ctry": "US"
+                  }
+                }
+              },
+              "urn2:CdtrAgt": {
+                "urn2:FinInstnId": {
+                  "urn2:ClrSysMmbId": {
+                    "urn2:ClrSysId": {
+                      "urn2:Cd": "USABA"
+                    },
+                    "urn2:MmbId": 91036164
+                  },
+                  "urn2:Nm": "Internal Revenue Service",
+                  "urn2:PstlAdr": {
+                    "urn2:StrtNm": "West Pershing Road",
+                    "urn2:BldgNb": 333,
+                    "urn2:PstCd": 64108,
+                    "urn2:TwnNm": "Kansas City",
+                    "urn2:CtrySubDvsn": "MO",
+                    "urn2:Ctry": "US"
+                  }
+                }
+              },
+              "urn2:Cdtr": {
+                "urn2:Nm": "Corporation A",
+                "urn2:PstlAdr": {
+                  "urn2:StrtNm": "Avenue of the Fountains",
+                  "urn2:BldgNb": 167565,
+                  "urn2:Room": "Suite D110",
+                  "urn2:PstCd": 85268,
+                  "urn2:TwnNm": "Fountain Hills",
+                  "urn2:CtrySubDvsn": "AZ",
+                  "urn2:Ctry": "US"
+                }
+              },
+              "urn2:RmtInf": {
+                "urn2:Strd": {
+                  "urn2:TaxRmt": {
+                    "urn2:Cdtr": {
+                      "urn2:TaxId": 123456789
+                    },
+                    "urn2:Rcrd": {
+                      "urn2:Tp": 9455,
+                      "urn2:Prd": {
+                        "urn2:Yr": "2025-12-31",
+                        "urn2:Tp": "MM04"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "xmlns:urn2": "urn:iso:std:iso:20022:tech:xsd:pacs.008.001.08"
+        }
+      }
+    },
+    "xmlns:urn": "urn:fedwirefunds:incoming:v001"
+  }
+}
