@@ -5,4 +5,4 @@ import { PACSValidator } from './validator/PACSValidator';
 
 export const pacsValidator = container.resolve(PACSValidator);
 
-export { PacsFileParserFactory };
+export const pacsParser = PacsFileParserFactory;
