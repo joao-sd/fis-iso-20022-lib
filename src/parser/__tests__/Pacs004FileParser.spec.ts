@@ -5,7 +5,6 @@ import { Pacs004FileParser } from '../Pacs004FileParser';
 
 describe('Pacs004FileParser', () => {
   let parser: Pacs004FileParser;
-  let xmlData: string;
   let filePath: string;
 
   beforeAll(() => {
@@ -43,6 +42,13 @@ describe('Pacs004FileParser', () => {
       expect(parsedResult.BeneficiaryFinancialInstitutionID).toBeDefined();
       expect(typeof parsedResult.BeneficiaryFinancialInstitutionID).toBe(
         'number',
+      );
+    });
+
+    it('should correctly parse the beneficiary financial institution name', () => {
+      expect(parsedResult.BeneficiaryFinancialInstitutionName).toBeDefined();
+      expect(typeof parsedResult.BeneficiaryFinancialInstitutionName).toBe(
+        'string',
       );
     });
 
@@ -107,9 +113,14 @@ describe('Pacs004FileParser', () => {
       expect(typeof parsedResult.PaymentNotificationInfo).toBe('string');
     });
 
-    it('should correctly parse the intermediary FI info', () => {
-      expect(parsedResult.IntermediaryFIInfo).toBeDefined();
-      expect(typeof parsedResult.IntermediaryFIInfo).toBe('string');
+    it('should correctly parse the beneficiary address', () => {
+      expect(parsedResult.BeneficiaryAddress).toBeDefined();
+      expect(typeof parsedResult.BeneficiaryAddress).toBe('object');
+    });
+
+    it('should correctly parse the originator address', () => {
+      expect(parsedResult.OriginatorAddress).toBeDefined();
+      expect(typeof parsedResult.OriginatorAddress).toBe('object');
     });
   });
 });
