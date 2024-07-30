@@ -35,13 +35,13 @@ describe('Pacs008FileParser', () => {
 
     it('should correctly parse the sender account number', () => {
       expect(parsedResult.SenderAccountNumber).toBeDefined();
-      expect(typeof parsedResult.SenderAccountNumber).toBe('number');
+      expect(typeof parsedResult.SenderAccountNumber).toBe('string');
     });
 
     it('should correctly parse the beneficiary financial institution ID', () => {
       expect(parsedResult.BeneficiaryFinancialInstitutionID).toBeDefined();
       expect(typeof parsedResult.BeneficiaryFinancialInstitutionID).toBe(
-        'number',
+        'string',
       );
     });
 

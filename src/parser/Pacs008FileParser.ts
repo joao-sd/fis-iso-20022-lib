@@ -15,16 +15,19 @@ export class Pacs008FileParser extends BasePacsFileParser {
       ? document['urn2:CdtTrfTxInf'][0]
       : document['urn2:CdtTrfTxInf'];
 
-    const senderAccountNumber =
+    const senderAccountNumber = String(
       transaction['urn2:DbtrAcct']?.['urn2:Id']?.['urn2:Othr']?.['urn2:Id'] ||
-      transaction['urn2:DbtrAcct']?.['urn2:Id']?.['urn2:IBAN'] ||
-      '';
-    const beneficiaryFinancialInstitutionID =
+        transaction['urn2:DbtrAcct']?.['urn2:Id']?.['urn2:IBAN'] ||
+        '',
+    );
+    const beneficiaryFinancialInstitutionID = String(
       transaction['urn2:CdtrAgt']?.['urn2:FinInstnId']?.['urn2:ClrSysMmbId']?.[
         'urn2:MmbId'
       ] ||
-      transaction['urn2:CdtrAgt']?.['urn2:FinInstnId']?.['urn2:BICFI'] ||
-      '';
+        transaction['urn2:CdtrAgt']?.['urn2:FinInstnId']?.['urn2:BICFI'] ||
+        '',
+    );
+
     const beneficiaryFinancialInstitutionName =
       transaction['urn2:CdtrAgt']?.['urn2:FinInstnId']?.['urn2:Nm'] || '';
     const beneficiaryName = transaction['urn2:Cdtr']?.['urn2:Nm'] || '';
