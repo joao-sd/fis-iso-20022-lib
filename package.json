@@ -8,7 +8,6 @@
     "test": "jest",
     "parse": "yarn ts-node ./src/parser/parseFedwire.ts"
   },
-  "private": false,
   "license": "MIT",
   "devDependencies": {
     "@types/jest": "^29.5.12",
@@ -28,5 +27,6 @@
   "files": [
     "dist",
     "README.md"
-  ]
+  ],
+  "packageManager": "yarn@1.22.11"
 }
