@@ -74,13 +74,12 @@ export class Pacs009FileParser extends BasePacsFileParser {
       ReceiptTimestamp: receiptTimestamp,
       UniqueIdentifier: uniqueIdentifier,
       OriginatorName: originatorName,
+      BeneficiaryAccount: beneficiaryAccount,
+      PaymentNotificationInfo: paymentNotificationInfo,
     };
 
     if (OMAD) result.OMAD = OMAD;
-    if (beneficiaryAccount) result.BeneficiaryAccount = beneficiaryAccount;
     if (IMAD) result.IMAD = IMAD;
-    if (paymentNotificationInfo)
-      result.PaymentNotificationInfo = paymentNotificationInfo;
 
     return result;
   }
