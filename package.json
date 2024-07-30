@@ -5,7 +5,7 @@
   "scripts": {
     "build": "tsc",
     "prepublish": "yarn build",
-    "test": "jest",
+    "test": "jest --silent",
     "parse": "yarn ts-node ./src/parser/parseFedwire.ts"
   },
   "license": "MIT",
