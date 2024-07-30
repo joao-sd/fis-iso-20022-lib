@@ -13,14 +13,16 @@ export class Pacs004FileParser extends BasePacsFileParser {
       ? document['urn2:TxInf'][0]
       : document['urn2:TxInf'];
 
-    const senderAccountNumber =
+    const senderAccountNumber = String(
       transaction['urn2:RtrChain']?.['urn2:DbtrAcct']?.['urn2:Id']?.[
         'urn2:Othr'
-      ]?.['urn2:Id'] || '';
-    const beneficiaryFinancialInstitutionID =
+      ]?.['urn2:Id'] || '',
+    );
+    const beneficiaryFinancialInstitutionID = String(
       transaction['urn2:RtrChain']?.['urn2:CdtrAgt']?.['urn2:FinInstnId']?.[
         'urn2:ClrSysMmbId'
-      ]?.['urn2:MmbId'] || '';
+      ]?.['urn2:MmbId'] || '',
+    );
     const beneficiaryFinancialInstitutionName =
       transaction['urn2:RtrChain']?.['urn2:CdtrAgt']?.['urn2:FinInstnId']?.[
         'urn2:Nm'
@@ -28,10 +30,11 @@ export class Pacs004FileParser extends BasePacsFileParser {
     const beneficiaryName =
       transaction['urn2:RtrChain']?.['urn2:Cdtr']?.['urn2:Pty']?.['urn2:Nm'] ||
       '';
-    const originatorID =
+    const originatorID = String(
       transaction['urn2:RtrChain']?.['urn2:DbtrAcct']?.['urn2:Id']?.[
         'urn2:Othr'
-      ]?.['urn2:Id'] || '';
+      ]?.['urn2:Id'] || '',
+    );
     const originatorFI =
       transaction['urn2:RtrChain']?.['urn2:DbtrAgt']?.['urn2:FinInstnId']?.[
         'urn2:ClrSysMmbId'

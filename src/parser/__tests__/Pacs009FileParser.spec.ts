@@ -1,18 +1,18 @@
 import path from 'path';
 import { DATA_PATH } from '../../constants/pathConstants';
 import { IFedwireParseInfo } from '../BasePacsFileParser';
-import { Pacs004FileParser } from '../Pacs004FileParser';
+import { Pacs009FileParser } from '../Pacs009FileParser';
 
-describe('Pacs004FileParser', () => {
-  let parser: Pacs004FileParser;
+describe('Pacs009FileParser', () => {
+  let parser: Pacs009FileParser;
   let filePath: string;
 
   beforeAll(() => {
-    filePath = path.join(DATA_PATH, 'PACS004_PaymentReturn.xml');
+    filePath = path.join(DATA_PATH, 'PACS009_CoverPayment.xml');
   });
 
   beforeEach(() => {
-    parser = new Pacs004FileParser();
+    parser = new Pacs009FileParser();
   });
 
   describe('parse', () => {
@@ -33,21 +33,9 @@ describe('Pacs004FileParser', () => {
       expect(parsedResult.Amount).toBeGreaterThan(0);
     });
 
-    it('should correctly parse the sender account number', () => {
-      expect(parsedResult.SenderAccountNumber).toBeDefined();
-      expect(typeof parsedResult.SenderAccountNumber).toBe('string');
-    });
-
     it('should correctly parse the beneficiary financial institution ID', () => {
       expect(parsedResult.BeneficiaryFinancialInstitutionID).toBeDefined();
       expect(typeof parsedResult.BeneficiaryFinancialInstitutionID).toBe(
-        'string',
-      );
-    });
-
-    it('should correctly parse the beneficiary financial institution name', () => {
-      expect(parsedResult.BeneficiaryFinancialInstitutionName).toBeDefined();
-      expect(typeof parsedResult.BeneficiaryFinancialInstitutionName).toBe(
         'string',
       );
     });
@@ -64,7 +52,7 @@ describe('Pacs004FileParser', () => {
 
     it('should correctly parse the originator FI', () => {
       expect(parsedResult.OriginatorFI).toBeDefined();
-      expect(typeof parsedResult.OriginatorFI).toBe('number');
+      expect(typeof parsedResult.OriginatorFI).toBe('string');
     });
 
     it('should correctly parse the OBI (Originator to Beneficiary Information)', () => {
@@ -79,7 +67,7 @@ describe('Pacs004FileParser', () => {
 
     it('should correctly parse the beneficiary account', () => {
       expect(parsedResult.BeneficiaryAccount).toBeDefined();
-      expect(typeof parsedResult.BeneficiaryAccount).toBe('number');
+      expect(typeof parsedResult.BeneficiaryAccount).toBe('string');
     });
 
     it('should correctly parse the originator name', () => {
@@ -96,7 +84,7 @@ describe('Pacs004FileParser', () => {
       expect(parsedResult.CreationDateTime).toBeDefined();
       expect(typeof parsedResult.CreationDateTime).toBe('string');
       expect(parsedResult.CreationDateTime).toMatch(
-        /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[+-]\d{2}:\d{2}$/,
+        /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d{3})?[+-]\d{2}:\d{2}$/,
       );
     });
 
@@ -104,23 +92,23 @@ describe('Pacs004FileParser', () => {
       expect(parsedResult.ReceiptTimestamp).toBeDefined();
       expect(typeof parsedResult.ReceiptTimestamp).toBe('string');
       expect(parsedResult.ReceiptTimestamp).toMatch(
-        /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[+-]\d{2}:\d{2}$/,
+        /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d{3})?[+-]\d{2}:\d{2}$/,
       );
+    });
+
+    it('should correctly parse the OMAD', () => {
+      expect(parsedResult.OMAD).toBeDefined();
+      expect(typeof parsedResult.OMAD).toBe('string');
+    });
+
+    it('should correctly parse the IMAD', () => {
+      expect(parsedResult.IMAD).toBeDefined();
+      expect(typeof parsedResult.IMAD).toBe('string');
     });
 
     it('should correctly parse the payment notification info', () => {
       expect(parsedResult.PaymentNotificationInfo).toBeDefined();
       expect(typeof parsedResult.PaymentNotificationInfo).toBe('string');
-    });
-
-    it('should correctly parse the beneficiary address', () => {
-      expect(parsedResult.BeneficiaryAddress).toBeDefined();
-      expect(typeof parsedResult.BeneficiaryAddress).toBe('object');
-    });
-
-    it('should correctly parse the originator address', () => {
-      expect(parsedResult.OriginatorAddress).toBeDefined();
-      expect(typeof parsedResult.OriginatorAddress).toBe('object');
     });
   });
 });
