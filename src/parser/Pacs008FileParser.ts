@@ -25,6 +25,8 @@ export class Pacs008FileParser extends BasePacsFileParser {
       ] ||
       transaction['urn2:CdtrAgt']?.['urn2:FinInstnId']?.['urn2:BICFI'] ||
       '';
+    const beneficiaryFinancialInstitutionName =
+      transaction['urn2:CdtrAgt']?.['urn2:FinInstnId']?.['urn2:Nm'] || '';
     const beneficiaryName = transaction['urn2:Cdtr']?.['urn2:Nm'] || '';
     const originatorID =
       transaction['urn2:DbtrAcct']?.['urn2:Id']?.['urn2:Othr']?.['urn2:Id'] ||
@@ -54,11 +56,15 @@ export class Pacs008FileParser extends BasePacsFileParser {
     const intermediaryFIInfo =
       transaction['urn2:IntrmyAgt1']?.['urn2:FinInstnId']?.['urn2:BICFI'] || '';
 
+    const beneficiaryAddress = transaction['urn2:Cdtr']?.['urn2:PstlAdr'] || '';
+    const originatorAddress = transaction['urn2:Dbtr']?.['urn2:PstlAdr'] || '';
+
     const result: IFedwireParseInfo = {
       MsgId: groupHeader['urn2:MsgId'],
       Amount: parseFloat(transaction['urn2:IntrBkSttlmAmt']?.['#text'] || '0'),
       SenderAccountNumber: senderAccountNumber,
       BeneficiaryFinancialInstitutionID: beneficiaryFinancialInstitutionID,
+      BeneficiaryFinancialInstitutionName: beneficiaryFinancialInstitutionName,
       BeneficiaryName: beneficiaryName,
       OriginatorID: originatorID,
       OriginatorFI: originatorFI,
@@ -73,6 +79,8 @@ export class Pacs008FileParser extends BasePacsFileParser {
       IMAD: IMAD,
       PaymentNotificationInfo: paymentNotificationInfo,
       IntermediaryFIInfo: intermediaryFIInfo,
+      BeneficiaryAddress: beneficiaryAddress,
+      OriginatorAddress: originatorAddress,
     };
 
     return result;
