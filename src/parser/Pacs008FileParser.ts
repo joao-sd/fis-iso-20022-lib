@@ -1,55 +1,62 @@
-import { BasePacsFileParser, IFedwireParseInfo } from "./BasePacsFileParser";
+import { BasePacsFileParser, IFedwireParseInfo } from './BasePacsFileParser';
 
 export class Pacs008FileParser extends BasePacsFileParser {
   protected extractDocument(parsedResult: any): any {
-    return parsedResult["urn:FedwireFundsIncoming"]?.["urn:FedwireFundsIncomingMessage"]?.[
-      "urn:FedwireFundsCustomerCreditTransfer"
-    ]?.["urn2:Document"]?.["urn2:FIToFICstmrCdtTrf"];
+    return parsedResult['urn:FedwireFundsIncoming']?.[
+      'urn:FedwireFundsIncomingMessage'
+    ]?.['urn:FedwireFundsCustomerCreditTransfer']?.['urn2:Document']?.[
+      'urn2:FIToFICstmrCdtTrf'
+    ];
   }
 
   protected parseDocument(document: any): IFedwireParseInfo {
-    const groupHeader = document["urn2:GrpHdr"];
-    const transaction = Array.isArray(document["urn2:CdtTrfTxInf"])
-      ? document["urn2:CdtTrfTxInf"][0]
-      : document["urn2:CdtTrfTxInf"];
+    const groupHeader = document['urn2:GrpHdr'];
+    const transaction = Array.isArray(document['urn2:CdtTrfTxInf'])
+      ? document['urn2:CdtTrfTxInf'][0]
+      : document['urn2:CdtTrfTxInf'];
 
     const senderAccountNumber =
-      transaction["urn2:DbtrAcct"]?.["urn2:Id"]?.["urn2:Othr"]?.["urn2:Id"] ||
-      transaction["urn2:DbtrAcct"]?.["urn2:Id"]?.["urn2:IBAN"] ||
-      "";
+      transaction['urn2:DbtrAcct']?.['urn2:Id']?.['urn2:Othr']?.['urn2:Id'] ||
+      transaction['urn2:DbtrAcct']?.['urn2:Id']?.['urn2:IBAN'] ||
+      '';
     const beneficiaryFinancialInstitutionID =
-      transaction["urn2:CdtrAgt"]?.["urn2:FinInstnId"]?.["urn2:ClrSysMmbId"]?.["urn2:MmbId"] ||
-      transaction["urn2:CdtrAgt"]?.["urn2:FinInstnId"]?.["urn2:BICFI"] ||
-      "";
-    const beneficiaryName = transaction["urn2:Cdtr"]?.["urn2:Nm"] || "";
+      transaction['urn2:CdtrAgt']?.['urn2:FinInstnId']?.['urn2:ClrSysMmbId']?.[
+        'urn2:MmbId'
+      ] ||
+      transaction['urn2:CdtrAgt']?.['urn2:FinInstnId']?.['urn2:BICFI'] ||
+      '';
+    const beneficiaryName = transaction['urn2:Cdtr']?.['urn2:Nm'] || '';
     const originatorID =
-      transaction["urn2:DbtrAcct"]?.["urn2:Id"]?.["urn2:Othr"]?.["urn2:Id"] ||
-      transaction["urn2:DbtrAcct"]?.["urn2:Id"]?.["urn2:IBAN"] ||
-      "";
+      transaction['urn2:DbtrAcct']?.['urn2:Id']?.['urn2:Othr']?.['urn2:Id'] ||
+      transaction['urn2:DbtrAcct']?.['urn2:Id']?.['urn2:IBAN'] ||
+      '';
     const originatorFI =
-      transaction["urn2:DbtrAgt"]?.["urn2:FinInstnId"]?.["urn2:ClrSysMmbId"]?.["urn2:MmbId"] ||
-      transaction["urn2:DbtrAgt"]?.["urn2:FinInstnId"]?.["urn2:BICFI"] ||
-      "";
-    const OBI =
-      transaction["urn2:RmtInf"]?.["urn2:Ustrd"] ||
-      transaction["urn2:RmtInf"]?.["urn2:Strd"]?.["urn2:TaxRmt"]?.["urn2:Cdtr"]?.["urn2:TaxId"] ||
-      "";
+      transaction['urn2:DbtrAgt']?.['urn2:FinInstnId']?.['urn2:ClrSysMmbId']?.[
+        'urn2:MmbId'
+      ] ||
+      transaction['urn2:DbtrAgt']?.['urn2:FinInstnId']?.['urn2:BICFI'] ||
+      '';
+    const OBI = transaction['urn2:RmtInf']?.['urn2:Ustrd'] || '';
 
-    const OMAD = transaction["urn2:PmtId"]?.["urn2:InstrId"] || "";
-    const beneficiaryAccount = transaction["urn2:CdtrAcct"]?.["urn2:Id"]?.["urn2:IBAN"] || "";
-    const originatorName = transaction["urn2:Dbtr"]?.["urn2:Nm"] || "";
-    const businessFunctionCode = transaction["urn2:PmtTpInf"]?.["urn2:LclInstrm"]?.["urn2:Prtry"] || "";
-    const uniqueIdentifier = transaction["urn2:PmtId"]?.["urn2:UETR"] || "";
-    const creationDateTime = groupHeader["urn2:CreDtTm"] || "";
+    const OMAD = transaction['urn2:PmtId']?.['urn2:InstrId'] || '';
+    const beneficiaryAccount =
+      transaction['urn2:CdtrAcct']?.['urn2:Id']?.['urn2:IBAN'] || '';
+    const originatorName = transaction['urn2:Dbtr']?.['urn2:Nm'] || '';
+    const businessFunctionCode =
+      transaction['urn2:PmtTpInf']?.['urn2:LclInstrm']?.['urn2:Prtry'] || '';
+    const uniqueIdentifier = transaction['urn2:PmtId']?.['urn2:UETR'] || '';
+    const creationDateTime = groupHeader['urn2:CreDtTm'] || '';
 
-    const receiptTimestamp = groupHeader["urn2:CreDtTm"] || "";
-    const IMAD = document["urn1:AppHdr"]?.["urn1:BizMsgIdr"] || "";
-    const paymentNotificationInfo = transaction["urn2:RmtInf"]?.["urn2:Ustrd"] || "";
-    const intermediaryFIInfo = transaction["urn2:IntrmyAgt1"]?.["urn2:FinInstnId"]?.["urn2:BICFI"] || "";
+    const receiptTimestamp = groupHeader['urn2:CreDtTm'] || '';
+    const IMAD = document['urn1:AppHdr']?.['urn1:BizMsgIdr'] || '';
+    const paymentNotificationInfo =
+      transaction['urn2:RmtInf']?.['urn2:Ustrd'] || '';
+    const intermediaryFIInfo =
+      transaction['urn2:IntrmyAgt1']?.['urn2:FinInstnId']?.['urn2:BICFI'] || '';
 
     const result: IFedwireParseInfo = {
-      MsgId: groupHeader["urn2:MsgId"],
-      Amount: parseFloat(transaction["urn2:IntrBkSttlmAmt"]?.["#text"] || "0"),
+      MsgId: groupHeader['urn2:MsgId'],
+      Amount: parseFloat(transaction['urn2:IntrBkSttlmAmt']?.['#text'] || '0'),
       SenderAccountNumber: senderAccountNumber,
       BeneficiaryFinancialInstitutionID: beneficiaryFinancialInstitutionID,
       BeneficiaryName: beneficiaryName,
@@ -61,13 +68,12 @@ export class Pacs008FileParser extends BasePacsFileParser {
       ReceiptTimestamp: receiptTimestamp,
       UniqueIdentifier: uniqueIdentifier,
       OriginatorName: originatorName,
+      OMAD: OMAD,
+      BeneficiaryAccount: beneficiaryAccount,
+      IMAD: IMAD,
+      PaymentNotificationInfo: paymentNotificationInfo,
+      IntermediaryFIInfo: intermediaryFIInfo,
     };
-
-    if (OMAD) result.OMAD = OMAD;
-    if (beneficiaryAccount) result.BeneficiaryAccount = beneficiaryAccount;
-    if (IMAD) result.IMAD = IMAD;
-    if (paymentNotificationInfo) result.PaymentNotificationInfo = paymentNotificationInfo;
-    if (intermediaryFIInfo) result.IntermediaryFIInfo = intermediaryFIInfo;
 
     return result;
   }
