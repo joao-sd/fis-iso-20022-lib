@@ -17,7 +17,7 @@ const filePaths = [
 filePaths.forEach((filePath) => {
   const parser = PacsFileParserFactory.createParser(filePath);
   if (parser) {
-    const data = parser.parseFile(filePath);
+    const data = parser.parseXMLFile(filePath);
     if (data) {
       console.log(`${filePath}:`, data);
     }

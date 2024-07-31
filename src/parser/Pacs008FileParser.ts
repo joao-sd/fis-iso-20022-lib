@@ -1,4 +1,5 @@
-import { BasePacsFileParser, IFedwireParseInfo } from './BasePacsFileParser';
+import { IFedwireParseInfo } from '../ParserTypes';
+import { BasePacsFileParser } from './BasePacsFileParser';
 
 export class Pacs008FileParser extends BasePacsFileParser {
   protected extractDocument(parsedResult: any): any {

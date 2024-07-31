@@ -1,6 +1,6 @@
 import path from 'path';
 import { DATA_PATH } from '../../constants/pathConstants';
-import { IFedwireParseInfo } from '../BasePacsFileParser';
+import { IFedwireParseInfo } from '../../ParserTypes';
 import { Pacs004FileParser } from '../Pacs004FileParser';
 
 describe('Pacs004FileParser', () => {
@@ -19,7 +19,7 @@ describe('Pacs004FileParser', () => {
     let parsedResult: IFedwireParseInfo;
 
     beforeEach(async () => {
-      parsedResult = parser.parseFile(filePath) as IFedwireParseInfo;
+      parsedResult = parser.parseXMLFile(filePath) as IFedwireParseInfo;
     });
 
     it('should correctly parse the message ID', () => {
