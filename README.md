@@ -17,7 +17,7 @@ Click to expand the PACS.004 coverage report
 | -------------------------------------- | ------------------- | ---------------- | ----------------------------------------------------------------------------------------------- |
 | Message Disposition                    | ❌                  | ❌               |                                                                                                 |
 | Receipt Timestamp                      | ✅                  | ✅               | `<urn2:GrpHdr> <urn2:CreDtTm>`                                                                  |
-| OMAD                                   | ❌                  | ✅               | `<urn2:GrpHdr> <urn2:MsgId>` determines the OMAD value                                          |
+| OMAD                                   | ✅                  | ✅               | `<urn2:GrpHdr> <urn2:MsgId>` determines the OMAD value                                          |
 | Error Tag                              | ❌                  | ❌               |                                                                                                 |
 | Format Version                         | ❌                  | ❌               |                                                                                                 |
 | User Request Data                      | ❌                  | ❌               |                                                                                                 |
