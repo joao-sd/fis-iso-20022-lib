@@ -122,5 +122,10 @@ describe('Pacs004FileParser', () => {
       expect(parsedResult.OriginatorAddress).toBeDefined();
       expect(typeof parsedResult.OriginatorAddress).toBe('object');
     });
+
+    it('should correctly parse the OMAD value', () => {
+      expect(parsedResult.OMAD).toBeDefined();
+      expect(typeof parsedResult.OMAD).toBe('string');
+    });
   });
 });

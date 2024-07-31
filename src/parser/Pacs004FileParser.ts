@@ -69,6 +69,8 @@ export class Pacs004FileParser extends BasePacsFileParser {
         'urn2:PstlAdr'
       ] || ''; // Originator Address
 
+    const OMAD = groupHeader['urn2:MsgId'] || ''; // OMAD value
+
     return {
       MsgId: groupHeader['urn2:MsgId'],
       Amount: parseFloat(transaction['urn2:RtrdInstdAmt']?.['#text'] || '0'),
@@ -89,6 +91,7 @@ export class Pacs004FileParser extends BasePacsFileParser {
       IntermediaryFIInfo: intermediaryFIInfo,
       BeneficiaryAddress: beneficiaryAddress,
       OriginatorAddress: originatorAddress,
+      OMAD: OMAD, // Add the OMAD value to the return object
     };
   }
 }
